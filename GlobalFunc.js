@@ -1,5 +1,11 @@
 class GlobalFunc {
 
+	/**
+	 * 存在问题！！
+	 * 如果在多个文件中存在同名函数，且都被监听了，显然是有问题的
+	 * 应该加上文件前缀或类前缀
+	 * @param {Function} func 
+	 */
 	getQualifiedFunctionName(func) {
 		if (!func || typeof func !== 'function') {
 			console.error(`传入参数不对 --- ${func}`);

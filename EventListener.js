@@ -106,6 +106,34 @@ class EventListener {
 		this.triggerEventListener(funcFullName);
 	}
 
+	// =====================================================================
+
+	newObserve(func, thisObj, myFunc) {
+		let type = typeof func;
+		if (type != 'function') {
+			console.log(`observe 第一个参数不是 Function。`);
+			return;
+		}
+		let funcFullName = globalFunc.getQualifiedFunctionName2(func, thisObj);
+		this.addEventListener(funcFullName, myFunc, this);
+	}
+
+	newAssociate(myFunc, thisObj, ...params) {
+		for (let i = 0; i < params.length; i++) {
+			this.observe(params[i], myFunc, thisObj);
+		}
+	}
+
+	newTrigger(func, thisObj) {
+		let type = typeof func;
+		if (type != 'function') {
+			console.log(`trigger 参数不是 Function。`);
+			return;
+		}
+		let funcFullName = globalFunc.getQualifiedFunctionName2(func, thisObj);
+		this.triggerEventListener(funcFullName);
+	}
+
 }
 
 export const eventListener = new EventListener();

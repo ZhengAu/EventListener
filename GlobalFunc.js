@@ -35,7 +35,7 @@ class GlobalFunc {
 	/**
 	 * 带有完整自定义的类名，自定义类名+函数名
 	 * @param {Function} func 
-	 * @param {any} obj 
+	 * @param {any} obj 暂时只能传入自定义的类名，在类中传入 this（实例） 暂时无效
 	 */
 	getQualifiedFunctionName2(func, obj) {
 		let prefixStr = '';

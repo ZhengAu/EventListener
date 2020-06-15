@@ -120,7 +120,7 @@ class EventListener {
 
 	newAssociate(myFunc, thisObj, ...params) {
 		for (let i = 0; i < params.length; i++) {
-			this.observe(params[i], myFunc, thisObj);
+			this.newObserve(params[i], myFunc, thisObj);
 		}
 	}
 
